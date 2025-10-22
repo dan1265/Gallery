@@ -28,6 +28,8 @@ public class LoadVideoManager : MonoBehaviour
     IEnumerator DownloadAndPlayVideo(string url)
     {
         videoPlayerCanvas.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         videoPlayer.url = url;
         videoPlayer.Prepare();
         while (!videoPlayer.isPrepared)
@@ -37,11 +39,13 @@ public class LoadVideoManager : MonoBehaviour
         videoPlayer.Play();
     }
 
-    void StopVideo(VideoPlayer vp)
+    public void StopVideo(VideoPlayer vp)
     {
         Debug.Log("Video terminado.");
         videoPlayer.Stop();
         videoPlayerCanvas.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }

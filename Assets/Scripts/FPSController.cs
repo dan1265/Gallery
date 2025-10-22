@@ -73,13 +73,11 @@ public class FPSController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             Button button = hit.collider.GetComponent<Button>();
-
             if (button != null)
             {
                 // Si el jugador presiona el botón de "Usar" (ej: el clic izquierdo o la tecla E)
                 if (Input.GetMouseButtonDown(0))
                 {
-                    Debug.Log("Botón presionado: " + button.name);
                     // **¡Aquí es donde se ejecuta el botón!**
                     button.onClick.Invoke();
                 }
