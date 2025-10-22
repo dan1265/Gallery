@@ -7,9 +7,16 @@ public class LoadImage : MonoBehaviour
 {
     public string imageUrl; // Pega aquí el enlace directo
     public Image targetImage; // Si usas UI
-    public Renderer targetRenderer; // Si usas un objeto 3D (opcional)
-    public Button playButton;
+    public string videoUrl; // Pega aquí el enlace directo del video
 
+    public LoadVideoManager videoManager; // Referencia al LoadVideoManager
+    private void Awake()
+    {
+        if (videoManager == null)
+        {
+            videoManager = FindObjectOfType<LoadVideoManager>();
+        }
+    }
     void Start()
     {
         StartCoroutine(DownloadImage());
@@ -27,13 +34,20 @@ public class LoadImage : MonoBehaviour
             Sprite newSprite = Sprite.Create(texture, new Rect(0.0f,0.0f, texture.width,texture.height), new Vector2(0.5f,0.5f), 100.0f);
             if (targetImage != null)
                 targetImage.sprite = newSprite;
-            if (playButton != null)
-                playButton.gameObject.SetActive(true);
-
         }
         else
         {
             Debug.Log("Error al descargar imagen: " + request.error);
+        }
+    }
+
+    public void PlayVideo()
+    {
+        Debug.Log("Iniciando reproducción de video...");
+        if (videoManager != null)
+        {
+
+            videoManager.PlayVideo(videoUrl);
         }
     }
 }

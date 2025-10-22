@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FPSController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class FPSController : MonoBehaviour
     private Vector3 velocity;  // Velocidad del jugador
     private bool isGrounded;
 
+    public float interactionDistance = 5f;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -26,6 +29,7 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
+        HandleInteraction();
         // Comprobar si estamos tocando el suelo
         isGrounded = characterController.isGrounded;
 
@@ -57,5 +61,30 @@ public class FPSController : MonoBehaviour
 
         playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    void HandleInteraction()
+    {
+        // El rayo sale del centro de la cámara (Viewport)
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        RaycastHit hit;
+
+        // Dispara el rayo
+        if (Physics.Raycast(ray, out hit, interactionDistance))
+        {
+            Button button = hit.collider.GetComponent<Button>();
+
+            if (button != null)
+            {
+                // Si el jugador presiona el botón de "Usar" (ej: el clic izquierdo o la tecla E)
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Debug.Log("Botón presionado: " + button.name);
+                    // **¡Aquí es donde se ejecuta el botón!**
+                    button.onClick.Invoke();
+                }
+            }
+        }
+        // Si no golpeamos nada interactivo, vuelve al estado normal del puntero.
     }
 }
