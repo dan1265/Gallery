@@ -19,6 +19,9 @@ public class LoadImage : MonoBehaviour
     }
     void Start()
     {
+        if (string.IsNullOrEmpty(imageUrl))
+            imageUrl = "https://drive.google.com/uc?export=download&id=1B00i4L89y0T4poLns4MUiMY_wuSUUyg8";
+
         StartCoroutine(DownloadImage());
     }
 
@@ -43,11 +46,8 @@ public class LoadImage : MonoBehaviour
 
     public void PlayVideo()
     {
-        Debug.Log("Iniciando reproducción de video...");
-        if (videoManager != null)
-        {
-
-            videoManager.PlayVideo(videoUrl);
-        }
+        if(!string.IsNullOrEmpty(videoUrl))
+            if (videoManager != null)
+                videoManager.PlayVideo(videoUrl);
     }
 }
