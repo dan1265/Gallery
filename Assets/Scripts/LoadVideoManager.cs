@@ -21,8 +21,8 @@ public class LoadVideoManager : MonoBehaviour
 
     public void PlayVideo(string url)
     {
-        Debug.Log("Iniciando descarga y reproducción de video...");
-        StartCoroutine(DownloadAndPlayVideo(url));
+        if(!videoPlayer.isPlaying)
+            StartCoroutine(DownloadAndPlayVideo(url));
     }
 
     IEnumerator DownloadAndPlayVideo(string url)

@@ -8,6 +8,7 @@ public class LoadImage : MonoBehaviour
     public string imageUrl; // Pega aquí el enlace directo
     public Image targetImage; // Si usas UI
     public string videoUrl; // Pega aquí el enlace directo del video
+    public Sprite defaultSprite; // Sprite por defecto en caso de error
 
     public LoadVideoManager videoManager; // Referencia al LoadVideoManager
     private void Awake()
@@ -20,7 +21,11 @@ public class LoadImage : MonoBehaviour
     void Start()
     {
         if (string.IsNullOrEmpty(imageUrl))
-            imageUrl = "https://drive.google.com/uc?export=download&id=1B00i4L89y0T4poLns4MUiMY_wuSUUyg8";
+        {
+            targetImage.sprite = defaultSprite;
+            return;
+        }
+
 
         StartCoroutine(DownloadImage());
     }
