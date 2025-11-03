@@ -10,6 +10,7 @@ public class LoadVideoManager : MonoBehaviour
 
     public FPSController fpsController;
 
+    public GameObject blackScreen;
     private void Awake()
     {
         if (videoPlayer != null)
@@ -29,6 +30,7 @@ public class LoadVideoManager : MonoBehaviour
 
     IEnumerator DownloadAndPlayVideo(string url)
     {
+        blackScreen.SetActive(true);
         fpsController.inVideo = true;
         videoPlayerCanvas.SetActive(true);
         Cursor.visible = true;
@@ -39,6 +41,7 @@ public class LoadVideoManager : MonoBehaviour
         {
             yield return null;
         }
+        blackScreen.SetActive(false);
         videoPlayer.Play();
     }
 

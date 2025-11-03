@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -11,6 +12,8 @@ public class LoadImage : MonoBehaviour
     public Sprite defaultSprite; // Sprite por defecto en caso de error
 
     public LoadVideoManager videoManager; // Referencia al LoadVideoManager
+
+    public string youtubeUrl;
     private void Awake()
     {
         if (videoManager == null)
@@ -51,8 +54,13 @@ public class LoadImage : MonoBehaviour
 
     public void PlayVideo()
     {
-        if(!string.IsNullOrEmpty(videoUrl))
+        if (!string.IsNullOrEmpty(videoUrl))
+        {
             if (videoManager != null)
                 videoManager.PlayVideo(videoUrl);
+        } else if(!string.IsNullOrEmpty(youtubeUrl))
+        {
+            Application.OpenURL(youtubeUrl);
+        }
     }
 }
