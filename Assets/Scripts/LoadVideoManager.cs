@@ -8,6 +8,8 @@ public class LoadVideoManager : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject videoPlayerCanvas;
 
+    public FPSController fpsController;
+
     private void Awake()
     {
         if (videoPlayer != null)
@@ -27,6 +29,7 @@ public class LoadVideoManager : MonoBehaviour
 
     IEnumerator DownloadAndPlayVideo(string url)
     {
+        fpsController.inVideo = true;
         videoPlayerCanvas.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -41,11 +44,11 @@ public class LoadVideoManager : MonoBehaviour
 
     public void StopVideo(VideoPlayer vp)
     {
-        Debug.Log("Video terminado.");
         videoPlayer.Stop();
         videoPlayerCanvas.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        fpsController.inVideo = false;
     }
 
 }

@@ -19,6 +19,8 @@ public class FPSController : MonoBehaviour
 
     public float interactionDistance = 5f;
 
+    public bool inVideo = false;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -29,6 +31,9 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
+        if (inVideo)
+            return;
+
         HandleInteraction();
         // Comprobar si estamos tocando el suelo
         isGrounded = characterController.isGrounded;
