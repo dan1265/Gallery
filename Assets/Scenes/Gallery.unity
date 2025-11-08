@@ -1126,12 +1126,17 @@ PrefabInstance:
     - target: {fileID: 3541150253831406539, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
         type: 3}
       propertyPath: imageUrl
-      value: 
+      value: https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/76cdf96f-92cf-44c8-8a5c-2e0b59b8980d/imagen_2025-11-03_143844299/w=384,quality=90,fit=scale-down
       objectReference: {fileID: 0}
     - target: {fileID: 3541150253831406539, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
         type: 3}
       propertyPath: videoUrl
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3541150253831406539, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
+        type: 3}
+      propertyPath: youtubeUrl
+      value: https://www.youtube.com/watch?v=xQx9BBdVNWw
       objectReference: {fileID: 0}
     - target: {fileID: 8940512253577604195, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
         type: 3}
@@ -2239,17 +2244,17 @@ PrefabInstance:
     - target: {fileID: 3541150253831406539, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
         type: 3}
       propertyPath: imageUrl
-      value: https://file.notion.so/f/f/ddfa7e23-f201-8140-ad35-00036df915d6/d77b0bf5-b275-44c7-bb97-7f30ad2e60fc/imagen_2025-11-03_143844299.png?table=block&id=2a0a7e23-f201-80ba-aed4-fb5155827599&spaceId=ddfa7e23-f201-8140-ad35-00036df915d6&expirationTimestamp=1762221600000&signature=ZPrdGAsa1Zg0-akOq9GnqpseffLKABipc49mm7BqLFk
+      value: https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/8577e95f-9cf2-4212-a58c-0bcdd2208e9e/Group_25/w=640,quality=90,fit=scale-down
       objectReference: {fileID: 0}
     - target: {fileID: 3541150253831406539, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
         type: 3}
       propertyPath: videoUrl
-      value: 
+      value: https://raw.githubusercontent.com/dan1265/Gallery/main/Videos/TheHarvesterWizard.mp4
       objectReference: {fileID: 0}
     - target: {fileID: 3541150253831406539, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
         type: 3}
       propertyPath: youtubeUrl
-      value: https://www.youtube.com/watch?v=xQx9BBdVNWw
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8940512253577604195, guid: 884ac94b3fcae2f40b552ef9af6f43fb,
         type: 3}
@@ -2550,14 +2555,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023251206}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.901148, y: 0.96, z: 0.79012084}
+  m_LocalRotation: {x: -0, y: 0.707107, z: -0, w: 0.7071066}
+  m_LocalPosition: {x: -5.1, y: 0.96, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1953031940}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!143 &2023251213
 CharacterController:
   m_ObjectHideFlags: 0
